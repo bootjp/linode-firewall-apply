@@ -1,10 +1,9 @@
 FROM golang:latest AS build
-WORKDIR $GOPATH/src/bootjp/linode-firewall-apply
+WORKDIR /go/src/app
 COPY . .
-RUN go build main.go
-RUN cp main /app
+RUN CGO_ENABLED=0 go build -o /go/bin/app
 
 FROM gcr.io/distroless/static:latest
-COPY --from=build /app /app
+COPY --from=build /go/bin/app /
 
 CMD ["/app"]
