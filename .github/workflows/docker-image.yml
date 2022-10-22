@@ -22,4 +22,4 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
 
       - name: push the Docker image
-        run: docker push ghcr.io/bootjp//linode-firewall-apply:latest
+        run: docker push ghcr.io/bootjp/linode-firewall-apply:latest
