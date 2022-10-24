@@ -73,9 +73,23 @@ func main() {
 		log.Fatal("No IPs found in redis")
 	}
 
-	fmt.Println("apply ips")
-	fmt.Println(ips)
+	ipns, err := convertIP2Cidr(ips)
+	if err != nil {
+		log.Fatal(err)
+	}
 
+	fmt.Println("apply ips")
+	for _, ipn := range ipns {
+		fmt.Println(ipn.String())
+	}
+
+	err = applyFirewall(ipns)
+	if err != nil {
+		log.Fatal(err)
+	}
+}
+
+func applyFirewall(cidrs []net.IPNet) error {
 	tokenSource := oauth2.StaticTokenSource(&oauth2.Token{AccessToken: apiKey})
 	oauth2Client := &http.Client{
 		Transport: &oauth2.Transport{
@@ -86,7 +100,12 @@ func main() {
 	linodeClient := linodego.NewClient(oauth2Client)
 	res, err := linodeClient.GetFirewall(context.Background(), fid)
 	if err != nil {
-		log.Fatal(err)
+		return err
+	}
+
+	var ips []string
+	for _, cidr := range cidrs {
+		ips = append(ips, cidr.String())
 	}
 
 	for _, rule := range res.Rules.Inbound {
@@ -102,12 +121,13 @@ func main() {
 	}
 	_, err = linodeClient.UpdateFirewallRules(context.Background(), fid, res.Rules)
 	if err != nil {
-		log.Fatal(err)
+		return err
 	}
 
+	return nil
 }
 
-func getAllowIps(ctx context.Context) ([]string, error) {
+func getAllowIps(ctx context.Context) ([]net.IP, error) {
 	rdb := redis.NewClient(&redis.Options{
 		Addr:     net.JoinHostPort(redisHost, redisPort),
 		Password: redisPassword,
@@ -119,5 +139,25 @@ func getAllowIps(ctx context.Context) ([]string, error) {
 		return nil, err
 	}
 
-	return ips, nil
+	var result []net.IP
+
+	for _, ip := range ips {
+		result = append(result, net.ParseIP(ip))
+	}
+
+	return result, nil
+}
+
+func convertIP2Cidr(ips []net.IP) ([]net.IPNet, error) {
+	var ipns []net.IPNet
+
+	for _, ip := range ips {
+		_, ipn, err := net.ParseCIDR(ip.String() + "/32")
+		if err != nil {
+			return nil, err
+		}
+		ipns = append(ipns, *ipn)
+	}
+
+	return ipns, nil
 }
