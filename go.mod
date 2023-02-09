@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
-	github.com/linode/linodego v1.13.0
+	github.com/linode/linodego v1.14.0
 	golang.org/x/oauth2 v0.5.0
 )
 
