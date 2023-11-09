@@ -55,6 +55,8 @@ github.com/linode/linodego v1.24.0 h1:zO+bMdTE6wPccqP7QIkbxAfACX7DjSX6DW9JE/qOKD
 github.com/linode/linodego v1.24.0/go.mod h1:cq/ty5BCEQnsO6OjMqD7Q03KCCyB8CNM5E3MNg0LV6M=
 github.com/linode/linodego v1.24.1 h1:/evUMIdXFJ2hOFoWlJqUPCI2A3pv3TG2h+cWXhmlI88=
 github.com/linode/linodego v1.24.1/go.mod h1:OMJYpuCvJnFDFrz44+rDCTMS8TH02YS+U/5isR6ZJxU=
+github.com/linode/linodego v1.25.0 h1:zYMz0lTasD503jBu3tSRhzEmXHQN1zptCw5o71ibyyU=
+github.com/linode/linodego v1.25.0/go.mod h1:BMZI0pMM/YGjBis7pIXDPbcgYfCZLH0/UvzqtsGtG1c=
 github.com/nxadm/tail v1.4.8 h1:nPr65rt6Y5JFSKQO7qToXr7pePgD6Gwiw05lkbyAQTE=
 github.com/onsi/ginkgo v1.16.5 h1:8xi0RTUf59SOSfEtZMvwTvXYMzG4gV23XVHOZiXNtnE=
 github.com/onsi/gomega v1.18.1 h1:M1GfJqGRrBrrGGsbxzV5dqM2U2ApXefZCQpkukxYRLE=
