@@ -6,7 +6,7 @@ toolchain go1.22.1
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
-	github.com/linode/linodego v1.32.0
+	github.com/linode/linodego v1.33.0
 	golang.org/x/oauth2 v0.19.0
 )
 
@@ -17,7 +17,7 @@ require (
 	github.com/go-resty/resty/v2 v2.12.0 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
-	golang.org/x/net v0.22.0 // indirect
+	golang.org/x/net v0.24.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
