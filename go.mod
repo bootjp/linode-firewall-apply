@@ -1,13 +1,13 @@
 module github.com/bootjp/linode-firewall-apply
 
-go 1.21
+go 1.22
 
 toolchain go1.23.1
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
-	github.com/linode/linodego v1.38.0
-	golang.org/x/oauth2 v0.22.0
+	github.com/linode/linodego v1.41.0
+	golang.org/x/oauth2 v0.23.0
 )
 
 require (
@@ -17,8 +17,8 @@ require (
 	github.com/go-resty/resty/v2 v2.13.1 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/stretchr/testify v1.9.0 // indirect
-	golang.org/x/net v0.27.0 // indirect
-	golang.org/x/text v0.16.0 // indirect
+	golang.org/x/net v0.29.0 // indirect
+	golang.org/x/text v0.18.0 // indirect
 	google.golang.org/appengine v1.6.7 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/ini.v1 v1.67.0 // indirect
