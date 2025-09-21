@@ -7,7 +7,7 @@ toolchain go1.24.1
 require (
 	github.com/go-redis/redis/v8 v8.11.5
 	github.com/linode/linodego v1.58.0
-	golang.org/x/oauth2 v0.30.0
+	golang.org/x/oauth2 v0.31.0
 )
 
 require (
