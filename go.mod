@@ -2,7 +2,7 @@ module github.com/bootjp/linode-firewall-apply
 
 go 1.25.0
 
-toolchain go1.25.5
+toolchain go1.27.1
 
 require (
 	github.com/go-redis/redis/v8 v8.11.5
